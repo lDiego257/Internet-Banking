@@ -17,6 +17,7 @@
             <asp:TextBox ID="txtclave" runat="server"></asp:TextBox>
         </p>
         <asp:Button ID="Button1" runat="server" Text="Iniciar Sesion" Width="97px" OnClick="Button1_Click" />
+        <asp:Button ID="Button1" runat="server" Text="Iniciar Sesion" Width="97px" OnClick="Button1_Click" />
     </form>
 </body>
 </html>
