@@ -17,20 +17,20 @@ namespace InternetBanking
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //string vUsuario = txtusuario.Text;
-            //string vClave = txtclave.Text;
-            //int idusuario= ws.login(vUsuario,vClave);
+            string vUsuario = txtusuario.Text;
+            string vClave = txtclave.Text;
+            int idusuario= ws.login(vUsuario,vClave);
 
-            //if (idusuario == 0)
-            //{
-            //    Response.Write("<script> alert(" + "'Datos incorrectos'" + ") </script>");
-            //}
+            if (idusuario == 0)
+            {
+                Response.Write("<script> alert(" + "'Datos incorrectos'" + ") </script>");
+            }
 
-            //else
-            //{
-            //    Session["UsuarioID"] = idusuario;
-            //    Response.Redirect("~/PaginasWeb/Principal.aspx");
-            //}
+            else
+            {
+                Session["UsuarioID"] = idusuario;
+                Response.Redirect("~/PaginasWeb/Principal.aspx");
+            }
         }
        
     }
