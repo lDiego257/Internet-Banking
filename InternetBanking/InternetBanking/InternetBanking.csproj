@@ -140,6 +140,7 @@
     <Content Include="Login.aspx" />
     <Content Include="login.html" />
     <Content Include="PaginasWeb\Principal.aspx" />
+    <Content Include="register.html" />
     <Content Include="tables.html" />
     <Content Include="utilities-animation.html" />
     <Content Include="utilities-border.html" />
