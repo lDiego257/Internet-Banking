@@ -18,11 +18,7 @@ namespace InternetBanking
     public class WSBanking : System.Web.Services.WebService
     {
         CNBanking entities = new CNBanking();
-        [WebMethod]
-        public string HelloWorld()
-        {
-            return "Hello World";
-        }
+        
         [WebMethod]
         public int login(string usuario, string clave)
         {
@@ -38,6 +34,49 @@ namespace InternetBanking
                 return id;
             }         
         }
-            
+        [WebMethod]
+        public tblCliente BuscarClientePorId(int id)
+        {
+            tblCliente Cliente = new tblCliente();
+            Cliente = entities.tblClientes.Where(x => x.Id == id).FirstOrDefault();
+            return Cliente;
+        }
+        [WebMethod]
+        public tblCuenta BuscarCuentaPorNumero(int numero)
+        {
+            tblCuenta Cuenta = new tblCuenta();
+            Cuenta = entities.tblCuentas.Where(x => x.Id == numero).FirstOrDefault();
+            return Cuenta;
+        }
+        [WebMethod]
+        public object ListarCuentas(string cedula)
+        {
+           return entities.tblCuentas.Where(x => x.Propietario == cedula).Select(x => x).ToList();
+        }
+        [WebMethod]
+        public bool Transaccion(string origen, string destino, int monto, string concepto)
+        {
+            tblCuenta c1 = BuscarCuentaPorNumero(int.Parse(origen));
+            tblCuenta c2 = BuscarCuentaPorNumero(int.Parse(destino));
+            if (BuscarCuentaPorNumero(int.Parse(destino)) != null)
+            {
+                tblTransaccione transaccion = new tblTransaccione();
+                transaccion.Concepto = concepto;
+                transaccion.Destino = destino;
+                transaccion.Monto = monto.ToString();
+                transaccion.Origen = origen;
+                entities.tblTransacciones.Add(transaccion);
+               
+          
+                c1.Balance = c1.Balance - monto;
+                c2.Balance = c2.Balance + monto;
+                entities.Entry(c1).State = System.Data.Entity.EntityState.Modified;
+                entities.Entry(c2).State = System.Data.Entity.EntityState.Modified;
+                entities.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
     }
 }

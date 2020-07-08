@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="b9f7cf197ee8474293f31e37442eb5c4" Name="Diagram1">
         <EntityTypeShape EntityType="BDBankingModel.tblCliente" Width="1.5" PointX="2.625" PointY="0.5" />
+        <EntityTypeShape EntityType="BDBankingModel.tblCuenta" Width="1.5" PointX="0.5" PointY="1.75" />
+        <EntityTypeShape EntityType="BDBankingModel.tblTransaccione" Width="1.5" PointX="4.875" PointY="1.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

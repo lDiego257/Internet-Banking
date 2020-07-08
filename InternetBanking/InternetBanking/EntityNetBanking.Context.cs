@@ -26,5 +26,7 @@ namespace InternetBanking
         }
     
         public virtual DbSet<tblCliente> tblClientes { get; set; }
+        public virtual DbSet<tblCuenta> tblCuentas { get; set; }
+        public virtual DbSet<tblTransaccione> tblTransacciones { get; set; }
     }
 }
