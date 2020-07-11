@@ -5,13 +5,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace InternetBanking.PaginasWeb.Master
+namespace InternetBanking
 {
-    public partial class Plantilla : System.Web.UI.MasterPage
+    public partial class MasterPage : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }    
+        }
+
+        protected void Logueo(object sender, EventArgs e)
+        {
+
+        }
     }
 }
