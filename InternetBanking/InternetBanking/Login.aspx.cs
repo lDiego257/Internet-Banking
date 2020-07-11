@@ -15,7 +15,7 @@ namespace InternetBanking
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Logueo(object sender, EventArgs e)
         {
             string vUsuario = txtusuario.Text;
             string vClave = txtclave.Text;
