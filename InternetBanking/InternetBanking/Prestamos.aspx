@@ -2,8 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <form class="user" runat="server">
-                    <div class="form-group">
+                       <div class="form-group">
                          <asp:TextBox type="Text" 
                              ID="txtusuario" 
                              runat="server"
