@@ -11,7 +11,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Batracar</title>
+  
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -30,7 +30,7 @@
         
         <!-- Page Wrapper -->
   <div id="wrapper">
-      <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+     
             
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -70,11 +70,6 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="buttons.html">Cuentas</a>
-               <asp:Button ID="Button1" 
-                        runat="server" 
-                        Text="Iniciar Sesion" 
-                        OnClick="Logueo" 
-                        class="btn btn-primary btn-user btn-block"/>
             <a class="collapse-item" href="cards.html">Cards</a>
           </div>
         </div>
@@ -114,7 +109,7 @@
           <div class="bg-white py-2 collapse-inner rounded">           
             <a class="collapse-item" href="login.html">Prestamos</a>
             <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+            <a class="collapse-item" href="Transacciones.aspx">Forgot Password</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6>
             <a class="collapse-item" href="404.html">404 Page</a>
@@ -143,7 +138,7 @@
 
     </ul>
     <!-- End of Sidebar -->
-          </asp:ContentPlaceHolder>
+          
 
 
     <!-- Content Wrapper -->
@@ -334,11 +329,13 @@
 
         </nav>
         <!-- End of Topbar -->
-
+         
         <!-- Begin Page Content -->
+            <div class="container-fluid">
      <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
 
+            </asp:ContentPlaceHolder>
+                </div>
         <!-- /.container-fluid -->
 
       </div>

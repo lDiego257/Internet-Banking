@@ -65,6 +65,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -109,6 +110,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ConsultarCuentas.aspx" />
+    <Content Include="ConsultarMovimientos.aspx" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="Global.asax" />
@@ -1782,6 +1785,20 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="ConsultarCuentas.aspx.cs">
+      <DependentUpon>ConsultarCuentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarCuentas.aspx.designer.cs">
+      <DependentUpon>ConsultarCuentas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarMovimientos.aspx.cs">
+      <DependentUpon>ConsultarMovimientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarMovimientos.aspx.designer.cs">
+      <DependentUpon>ConsultarMovimientos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
