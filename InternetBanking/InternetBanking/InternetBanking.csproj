@@ -123,6 +123,9 @@
     <Content Include="js\sb-admin-2.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Principal.aspx" />
+    <Content Include="TransInterbancaria.aspx" />
+    <Content Include="TransPropias.aspx" />
+    <Content Include="TransTerceros.aspx" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="vendor\bootstrap\js\bootstrap.js" />
@@ -1782,6 +1785,7 @@
     <Content Include="vendor\jquery\jquery.slim.min.js" />
     <Content Include="Web.config" />
     <Content Include="Prestamos.aspx" />
+    <Content Include="Transaccion.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -1831,6 +1835,34 @@
     </Compile>
     <Compile Include="Prestamos.aspx.designer.cs">
       <DependentUpon>Prestamos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaccion.aspx.cs">
+      <DependentUpon>Transaccion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaccion.aspx.designer.cs">
+      <DependentUpon>Transaccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransInterbancaria.aspx.cs">
+      <DependentUpon>TransInterbancaria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransInterbancaria.aspx.designer.cs">
+      <DependentUpon>TransInterbancaria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransPropias.aspx.cs">
+      <DependentUpon>TransPropias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransPropias.aspx.designer.cs">
+      <DependentUpon>TransPropias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransTerceros.aspx.cs">
+      <DependentUpon>TransTerceros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransTerceros.aspx.designer.cs">
+      <DependentUpon>TransTerceros.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

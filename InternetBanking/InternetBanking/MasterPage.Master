@@ -82,10 +82,9 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">            
-            <a class="collapse-item" href="utilities-color.html">Propias</a>
-            <a class="collapse-item" href="utilities-border.html">Terceros</a>
-            <a class="collapse-item" href="utilities-animation.html">Interbancaria</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+            <a class="collapse-item" href="TransPropias.aspx">Propias</a>
+            <a class="collapse-item" href="TransTerceros.aspx">Terceros</a>
+            <a class="collapse-item" href="TransInterbancaria.aspx">Interbancaria</a>
           </div>
         </div>
       </li>
@@ -101,10 +100,10 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
+          <i class="fas fa-fw fa-cog"></i>
           <span>Pagos</span>
         </a>
-        <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">           
             <a class="collapse-item" href="Prestamos.aspx">Prestamos</a>
           </div>
@@ -352,7 +351,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="login.aspx">Logout</a>
         </div>
       </div>
     </div>
