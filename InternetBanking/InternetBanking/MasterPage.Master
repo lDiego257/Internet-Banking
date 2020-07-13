@@ -69,7 +69,7 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="buttons.html">Cuentas</a>
+            <a class="collapse-item" href="ConsultarCuentas.aspx">Cuentas</a>
           </div>
         </div>
       </li>
@@ -120,7 +120,7 @@
         </a>
         <div id="collapsefour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="buttons.html">Cuentas</a>
+            <a class="collapse-item" href="ConsultarCuentas.aspx">Cuentas</a>
             <a class="collapse-item" href="cards.html">Cards</a>
           </div>
         </div>
