@@ -12,17 +12,31 @@ namespace InternetBanking
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Cuentas.ListarCuentas() != null)
+           
+            if (!Page.IsPostBack)
             {
-                GV1.DataSource = Cuentas.ListarCuentas();
+                if (Session["usuario"] == null)
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
+            }
+            if (Cuentas.ListarCuentas(Session["usuario"].ToString()) != null)
+            {
+                GV1.DataSource = Cuentas.ListarCuentas(Session["usuario"].ToString());
                 GV1.DataBind();
+            }
+            else
+            {
+                Response.Write("<script> alert(" + "'Usted no posee cuentas'" + ") </script>");
             }
 
         }
 
         protected void GV1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            GridViewRow fila = GV1.SelectedRow;
+            Session["ConsultaCuenta"] = fila.Cells[1].Text;
+            Response.Redirect("~/ConsultarMovimientos.aspx");
         }
     }
 

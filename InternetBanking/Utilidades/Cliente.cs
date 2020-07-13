@@ -60,16 +60,18 @@ namespace Utilidades
         public string estado { get; set; }
         public DateTime ultimaVisita { get; set; }
 
-        public static object ListarCuentas()
+        public static object ListarCuentas(string username)
         {
+           
             using (var httpClient = new HttpClient())
             {
                 try
                 {
-                    var response = httpClient.GetStringAsync(new Uri($"https://corebankapis.azurewebsites.net/api/TblCuentas")).Result;
+                    Cliente c1 = Cliente.GetClienteByUsuario(username);
+                    var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/GetClientAccounts/{ c1.Cedula}")).Result;
 
-                    List<Cuentas> c1 = JsonConvert.DeserializeObject<List<Cuentas>>(response);
-                    var query = from i in c1
+                    List<Cuentas> ListaCuentas = JsonConvert.DeserializeObject<List<Cuentas>>(response);
+                    var query = from i in ListaCuentas
                                 select new
                                 {
                                     Numero_De_Cuenta = i.id,
@@ -97,39 +99,35 @@ namespace Utilidades
         public string cedula { get; set; }
         public string tipoTransaccion { get; set; }
         public string nombreProducto { get; set; }
-        public int precioProducto { get; set; }
+        public double precioProducto { get; set; }
         public string idCuentaEmisora { get; set; }
         public string idCuentaReceptora { get; set; }
         public DateTime fechaTransaccion { get; set; }
 
-        public static object GetTransacciones(int NumeroCuenta)
+        public static object GetTransacciones(string NumeroCuenta)
         {
-            List<Transacciones> t1 = new List<Transacciones>();
-            List<Transacciones> t2 = new List<Transacciones>();
+            List<Transacciones> t1 = new List<Transacciones>();           
             using (var httpClient = new HttpClient())
             {
                 //lista de transacciones que envia
                 try
                 {
-                    var response = httpClient.GetStringAsync(new Uri($"")).Result;
-                    t1 = JsonConvert.DeserializeObject<List<Transacciones>>(response);                                      
+                    var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/GetAccountMovementsByReceiverUser/{ NumeroCuenta}")).Result;
+                    t1.AddRange(JsonConvert.DeserializeObject<List<Transacciones>>(response));                                      
                 }
                 catch (Exception)
-                {
-                    t1 = null;
+                {                   
                 }
                 //Lista de transacciones que recibe
                 try
                 {
-                    var response = httpClient.GetStringAsync(new Uri($"")).Result;
-                    t2 = JsonConvert.DeserializeObject<List<Transacciones>>(response);
+                    var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/GetAccountMovementsBySenderUser/{ NumeroCuenta}")).Result;
+                    t1.AddRange(JsonConvert.DeserializeObject<List<Transacciones>>(response));
                 }
                 catch (Exception)
-                {
-                    t2 = null;
-                }
-                t1.AddRange(t2);
-                if(t1 != null)
+                {                    
+                }             
+                if(t1.Count()>0)
                 {
                     var query = from i in t1
                                 select new
@@ -153,16 +151,20 @@ namespace Utilidades
         public string username { get; set; }
         public string clave { get; set; }
 
-        public static async Task<bool> ValidarUsuarioAsync(string usuario, string clave)
+        public static bool ValidaUsuario(string vUsuario, string vClave)
         {
-            using (var Client = new HttpClient())
+            using (var httpClient = new HttpClient())
             {
-                var response = await Client.GetAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/IsValidUser/Username={ usuario}&Clave={ clave}"));
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                try
+                {
+                    var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/IsValidUser/Username={ vUsuario}&Clave={ vClave}")).Result;    
                     return true;
-                return false;              
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
             }
-        }   
-    }
-   
+        }
+    } 
 }

@@ -25,7 +25,7 @@ namespace InternetBanking
             {             
                 string vUsuario = txtusuario.Text;
                 string vClave = txtclave.Text;
-                if (usuario.ValidarUsuarioAsync(vUsuario,vClave).Result)
+                if (usuario.ValidaUsuario(vUsuario,vClave))
                 {
                     Response.Write("<script> alert(" + "'Chevere'" + ") </script>");
                     Session["usuario"] = vUsuario;

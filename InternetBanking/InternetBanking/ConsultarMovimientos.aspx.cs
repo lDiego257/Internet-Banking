@@ -12,11 +12,18 @@ namespace InternetBanking
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Utilidades.Transacciones.GetTransacciones() != null)
-            //{
-            //    GV1.DataSource = Transacciones.GetTransacciones();
-            //    GV1.DataBind();
-            //}
+            if (!Page.IsPostBack)
+            {
+                if (Session["usuario"] == null)
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
+            }
+            if (Transacciones.GetTransacciones(Session["ConsultaCuenta"].ToString()) != null)
+            {
+                GV1.DataSource = Transacciones.GetTransacciones(Session["ConsultaCuenta"].ToString());
+                GV1.DataBind();
+            }
         }
 
         protected void GV1_SelectedIndexChanged(object sender, EventArgs e)
