@@ -115,12 +115,6 @@
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="Global.asax" />
-    <Content Include="js\demo\chart-area-demo.js" />
-    <Content Include="js\demo\chart-bar-demo.js" />
-    <Content Include="js\demo\chart-pie-demo.js" />
-    <Content Include="js\demo\datatables-demo.js" />
-    <Content Include="js\sb-admin-2.js" />
-    <Content Include="js\sb-admin-2.min.js" />
     <Content Include="Login.aspx" />
     <Content Include="Principal.aspx" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js" />
