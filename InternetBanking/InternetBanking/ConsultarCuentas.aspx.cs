@@ -18,7 +18,12 @@ namespace InternetBanking
                 GV1.DataBind();
             }
 
-        }          
+        }
+
+        protected void GV1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
