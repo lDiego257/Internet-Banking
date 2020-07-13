@@ -17,8 +17,6 @@ namespace InternetBanking
                 GV1.DataSource = Cuentas.ListarCuentas();
                 GV1.DataBind();
             }
-            DL.DataSource = Cuentas.ListarCuentas();
-            DL.DataBind();
 
         }          
     }
