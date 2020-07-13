@@ -47,6 +47,8 @@
                     <div class="form-group">
                          <asp:TextBox type="Text" 
                              ID="txtusuario" 
+                             width="340px"
+                        height="40"
                              runat="server"
                              class="form-control form-control-user"
                              placeholder="ID"
@@ -59,6 +61,8 @@
                          <asp:TextBox type="password" 
                              ID="txtclave"
                              runat="server"
+                             width="340px"
+                        height="40"
                              class="form-control form-control-user"
                              placeholder="Password">
 
