@@ -27,7 +27,7 @@ namespace InternetBanking
                 string vClave = txtclave.Text;
                 if (usuario.ValidaUsuario(vUsuario,vClave))
                 {
-                    Response.Write("<script> alert(" + "'Chevere'" + ") </script>");
+                    
                     Session["usuario"] = vUsuario;
                     Response.Redirect("Principal.aspx");
                    

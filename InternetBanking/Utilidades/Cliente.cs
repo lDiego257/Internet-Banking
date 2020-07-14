@@ -8,6 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Utilidades
 {
     public class Cliente
@@ -76,13 +77,33 @@ namespace Utilidades
                                 {
                                     Numero_De_Cuenta = i.id,
                                     Balance = i.balance,
-            
                                     Moneda = i.moneda,
                                     Estado = i.estado,
                                     Tipo = i.tipo,
-
                                 };
                     return query;
+                   
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+        }
+        public static object ListarCuentasDrop(string username)
+        {
+
+            using (var httpClient = new HttpClient())
+            {
+                try
+                {
+                    Cliente c1 = Cliente.GetClienteByUsuario(username);
+                    var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/GetClientAccounts/{ c1.Cedula}")).Result;
+
+                    List<Cuentas> ListaCuentas = JsonConvert.DeserializeObject<List<Cuentas>>(response);
+                    var query = ListaCuentas.Select(p => new { p.id, DisplayText = p.id.ToString() + "| Moneda: "+ p.moneda + " | Balance: " +p.balance.ToString()});
+                    return query;
+
                 }
                 catch (Exception)
                 {
@@ -145,6 +166,38 @@ namespace Utilidades
             }
         }
 
+        public static string PostTransaction(string cedula, string concepto, double monto, int Emisor, int Receptor)
+        {
+            Transacciones t1 = new Transacciones();
+            t1.cedula = cedula;        
+            t1.nombreProducto = concepto;
+            t1.idCuentaEmisora = Emisor.ToString();
+            t1.idCuentaReceptora = Receptor.ToString();
+            t1.precioProducto = monto;
+            t1.tipoTransaccion = "D";      
+
+            var json = JsonConvert.SerializeObject(t1);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+           
+     
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var response = client.PostAsync(new Uri("https://bank-integration.azurewebsites.net/api/Netbankings/TransferMoney"), data).Result;
+                    if (response.IsSuccessStatusCode)
+                        return "bien";
+                    return response.Content.ToString();
+                }               
+            }
+            catch (Exception)
+            {
+                return "mal";
+            }
+
+        }
+
+
     }
     public class usuario
     {
@@ -167,4 +220,13 @@ namespace Utilidades
             }
         }
     } 
+
+    public class CuentasShow
+    {
+        public int Numero_De_Cuenta { get; set; }
+        public double Balance { get; set; }
+        public string Moneda { get; set; }
+        public string Estado { get; set; }
+        public string Tipo { get; set; }
+    }
 }

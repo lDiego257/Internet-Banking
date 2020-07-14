@@ -50,16 +50,16 @@
 
 <br>
 
-<%-- Numero de cuenta --%>
+<%-- Numero de cuenta receptor --%>
                     <b>
      <asp:Label ID="Label4" 
         runat="server" 
-        Text="Numero de cue"
+        Text="Numero de cuenta receptor"
         ></asp:Label>
                     </b>
 <br>
 
-     <asp:DropDownList ID="DropDownList3"
+    <%-- <asp:DropDownList ID="DropDownList3"
         runat="server"
         class="form-control form-control-user"
         width="600"
@@ -68,7 +68,7 @@
 
 
      </asp:DropDownList>
-                    <br >
+                    <br >--%>
            <asp:TextBox ID="TextBox1"
          runat="server"
           class="form-control form-control-user"
