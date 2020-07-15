@@ -121,8 +121,8 @@ namespace Utilidades
         public string tipoTransaccion { get; set; }
         public string nombreProducto { get; set; }
         public double precioProducto { get; set; }
-        public string idCuentaEmisora { get; set; }
-        public string idCuentaReceptora { get; set; }
+        public int idCuentaEmisora { get; set; }
+        public int idCuentaReceptora { get; set; }
         public DateTime fechaTransaccion { get; set; }
 
         public static object GetTransacciones(string NumeroCuenta)
@@ -171,8 +171,8 @@ namespace Utilidades
             Transacciones t1 = new Transacciones();
             t1.cedula = cedula;        
             t1.nombreProducto = concepto;
-            t1.idCuentaEmisora = Emisor.ToString();
-            t1.idCuentaReceptora = Receptor.ToString();
+            t1.idCuentaEmisora = Emisor;
+            t1.idCuentaReceptora = Receptor;
             t1.precioProducto = monto;
             t1.tipoTransaccion = "D";      
 
@@ -184,7 +184,7 @@ namespace Utilidades
             {
                 using (var client = new HttpClient())
                 {
-                    var response = client.PostAsync(new Uri("https://bank-integration.azurewebsites.net/api/Netbankings/TransferMoney"), data).Result;
+                    var response = client.PostAsync(new Uri(""), data).Result;
                     if (response.IsSuccessStatusCode)
                         return "bien";
                     return response.Content.ToString();
