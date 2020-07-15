@@ -24,6 +24,7 @@
         class="form-control form-control-user"
          placeholder="Seleccione"
         width="600"
+        height="40"
          aria-describedby="emailHelp">
         <asp:ListItem >Seleccione</asp:ListItem>
     </asp:DropDownList>
@@ -41,8 +42,8 @@
      <asp:DropDownList ID="DropDownList2"
         runat="server"
         class="form-control form-control-user"
-        
-          width="600"
+         width="600"
+        height="40"
          aria-describedby="emailHelp">
          <asp:ListItem >Seleccione</asp:ListItem>
 
@@ -59,20 +60,22 @@
                     </b>
 <br>
 
-    <%-- <asp:DropDownList ID="DropDownList3"
+     <asp:DropDownList ID="DropDownList3"
         runat="server"
         class="form-control form-control-user"
-        width="600"
+         width="600"
+        height="40"
         aria-describedby="emailHelp">
          <asp:ListItem >Seleccione</asp:ListItem>
 
 
      </asp:DropDownList>
-                    <br >--%>
+                    <br >
            <asp:TextBox ID="TextBox1"
          runat="server"
           class="form-control form-control-user"
-         width="600"
+          width="600"
+        height="40"
                placeholder="Numero de cuenta"
          aria-describedby="emailHelp"></asp:TextBox>
 <br>
@@ -89,7 +92,8 @@
        runat="server"
        class="form-control form-control-user"
        placeholder="Monto"
-       width="600"
+        width="600"
+        height="40"
        aria-describedby="emailHelp"></asp:TextBox>
 
     
@@ -104,7 +108,8 @@
          <asp:TextBox id="textbox3"
          runat="server"
          class="form-control form-control-user"
-         width="600"
+          width="600"
+        height="40"
          aria-describedby="emailHelp">
 
          </asp:TextBox> 
@@ -113,6 +118,7 @@
                         runat="server" 
                         Text="Enviar" 
                         width="600"
+        height="40"
                         class="btn btn-primary btn-icon-split">
                       </asp:Button>
 
