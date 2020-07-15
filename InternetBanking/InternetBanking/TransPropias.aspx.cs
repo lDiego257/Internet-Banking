@@ -54,8 +54,7 @@ namespace InternetBanking
                     double monto;
                     if (double.TryParse(TextBox1.Text, out monto))
                     {
-                        string respuesta = Transacciones.PostTransaction(c1.Cedula, textbox3.Text, monto, int.Parse(DropDownList1.SelectedValue), int.Parse(DropDownList2.SelectedValue));
-                       
+                        string respuesta = Transacciones.PostTransaction(c1.Cedula, textbox3.Text, monto, int.Parse(DropDownList1.SelectedValue), int.Parse(DropDownList2.SelectedValue));                       
                         MessageBox.Show($"{respuesta}");
                         
                     }
