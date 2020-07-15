@@ -77,6 +77,13 @@
          aria-describedby="emailHelp">
 
          </asp:TextBox> 
+                     <br />
+                    <asp:Button id="Button1" 
+                        runat="server" 
+                        Text="Enviar" 
+                        width="600"
+                        class="btn btn-primary btn-icon-split" OnClick="Button1_Click">
+                      </asp:Button>
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ConsultarCuentas.aspx.cs" Inherits="InternetBanking.ConsultarCuentas" %>
+﻿<%@ Page Title="Consultar Cuenta" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="ConsultarCuentas.aspx.cs" Inherits="InternetBanking.ConsultarCuentas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Consultar Cuentas</title>
 </asp:Content>

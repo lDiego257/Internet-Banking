@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Principal.aspx.cs" Inherits="InternetBanking.Principal" %>
+﻿<%@ Page Title="Inicio" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Principal.aspx.cs" Inherits="InternetBanking.Principal" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -8,8 +9,11 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Inicio</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generar Reporte</a>
+            <a href="Reporte.aspx" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generar Reporte</a>
           </div>
+           <%--<rsweb:ReportViewer ID="ReportViewer1" runat="server" ProcessingMode="Remote">
+           <ServerReport ReportPath="" ReportServerUrl="" />
+           </rsweb:ReportViewer>--%>
 
           <!-- Content Row -->
           <div class="row">
@@ -17,7 +21,7 @@
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
+                    <div cl ass="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">texto</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">Monto</div>
                     </div>

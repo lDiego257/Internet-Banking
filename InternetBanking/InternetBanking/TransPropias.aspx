@@ -1,10 +1,9 @@
-﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="TransPropias.aspx.cs" Inherits="InternetBanking.TransPropias" %>
+﻿ <%@ Page Title="Transacciones propias" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="TransPropias.aspx.cs" Inherits="InternetBanking.TransPropias" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="row justify-content-center">
-
-
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
                 <div class="p-5">
