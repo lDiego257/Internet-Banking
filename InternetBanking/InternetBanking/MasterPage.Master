@@ -110,6 +110,15 @@
         </div>
       </li>
 
+        <%-- beneficiarios --%>
+        <li class="nav-item">
+        <a class="nav-link" href="Beneficiarios.aspx">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Beneficiarios</span></a>
+      </li>
+        
+      </li>
+
       <!-- Nav Item - Charts -->
       
         <li class="nav-item">
