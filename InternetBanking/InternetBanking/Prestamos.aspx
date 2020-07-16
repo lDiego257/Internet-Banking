@@ -19,8 +19,7 @@
         ></asp:Label>
                     <br>
 
-
-    
+  
     <asp:DropDownList ID="DropDownList1"
         runat="server"
         class="form-control form-control-user"
@@ -32,6 +31,21 @@
     </asp:DropDownList>
 
                    <br>
+  <asp:Label ID="Label2" 
+      runat="server" 
+      Text="Prestamos">
+  </asp:Label>
+<br>
+
+        <asp:DropDownList ID="DropDownList2" 
+         runat="server"
+         class="form-control form-control-user"
+         placeholder="Seleccione"
+         width="600"
+         height="40"
+         aria-describedby="emailHelp"></asp:DropDownList>
+
+    <br>
 <b>
      <asp:Label ID="Label3" 
         runat="server" 
