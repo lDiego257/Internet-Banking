@@ -8,15 +8,15 @@
           <div class="card-body p-0">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Transsaciones Interbancarias </h1>
+                    <h1 class="h4 text-gray-900 mb-4"><b>Transsaciones Interbancarias </h1>
                   </div>
 
-                    <b>
+                    
     <asp:Label ID="Label1" 
         runat="server" 
         Text="Cuenta Origen"
         ></asp:Label>
-                    </b>
+                   
 <br />
     
     <asp:DropDownList ID="DropDownList1"
@@ -29,12 +29,26 @@
         <asp:ListItem >Seleccione</asp:ListItem>
     </asp:DropDownList>
 <br />
-<b>
+
+ <asp:Label ID="Label4" runat="server" Text="Banco"></asp:Label>
+                    
+           <br>
+
+     <asp:DropDownList ID="DropDownList3" 
+         runat="server"
+        class="form-control form-control-user"
+         placeholder="Seleccione"
+        width="600"
+        height="40"
+         aria-describedby="emailHelp">
+        <asp:ListItem >Seleccione</asp:ListItem></asp:DropDownList>
+     <br>
+                    
      <asp:Label ID="Label2" 
         runat="server" 
         Text="Cuenta Destino"
         ></asp:Label>
-                    </b>
+                   
 
 <br />
      <asp:DropDownList ID="DropDownList2"
@@ -47,12 +61,12 @@
 
      </asp:DropDownList>
           <br />         
-<b>
+
      <asp:Label ID="Label3" 
         runat="server" 
         Text="Monto a Pagar"
         ></asp:Label>
-    </b>
+ 
                     <br />
      <asp:TextBox ID="TextBox1" 
          runat="server"
@@ -63,11 +77,11 @@
          aria-describedby="emailHelp">
          </asp:TextBox>
 <br />
-<b>
+
          <asp:Label runat="server" 
              Text="Concepto">
          </asp:Label>
-</b>
+
 <br />
          <asp:TextBox id="textbox3"
          runat="server"
@@ -82,7 +96,7 @@
                         runat="server" 
                         Text="Enviar" 
                         width="600"
-                        class="btn btn-primary btn-icon-split" OnClick="Button1_Click">
+                        class="btn btn-primary btn-icon-split" >
                       </asp:Button>
                 </div>
               </div>
