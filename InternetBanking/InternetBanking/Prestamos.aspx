@@ -15,7 +15,7 @@
                  
     <asp:Label ID="Label1" 
         runat="server" 
-        Text="Cuenta Origen"
+        Text="Prestamos"
         ></asp:Label>
                     <br>
 
@@ -33,7 +33,7 @@
                    <br>
   <asp:Label ID="Label2" 
       runat="server" 
-      Text="Prestamos">
+      Text="Cuenta origen">
   </asp:Label>
 <br>
 
@@ -68,7 +68,7 @@
                         Text="Enviar" 
                         width="600"
                         heigth="0"
-                        class="btn btn-primary btn-icon-split" /></asp:Button>
+                        class="btn btn-primary btn-icon-split" OnClick="Button1_Click" /></asp:Button>
     
                 </div>
               </div>
@@ -81,6 +81,9 @@
     </div>
 
   </div>
+
+
+    </b>
 
 
 </asp:Content>

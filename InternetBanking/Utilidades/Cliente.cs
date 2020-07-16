@@ -324,7 +324,8 @@ namespace Utilidades
         public string cedula { get; set; }
         public string telefono { get; set; }
         public string correoElectronico { get; set; }
-        public int cantidadSolicitada { get; set; }
+        public double cantidadSolicitada { get; set; }
+        public double cantidadfaltante { get; set; }
 
         public static object GetPrestamosByCedula(string cedula)
         {
@@ -332,7 +333,7 @@ namespace Utilidades
             {
                 try
                 {
-                    
+
                     var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/GetClientLoans/{ cedula}")).Result;
 
                     List<prestamos> ListaCuentas = JsonConvert.DeserializeObject<List<prestamos>>(response);
@@ -340,17 +341,70 @@ namespace Utilidades
                                 select new
                                 {
                                     id = i.id,
+                                    DisplayText = i.id + "| Cantidad Solicitada: " + i.cantidadSolicitada + "| Por pagar: " + i.cantidadfaltante,
                                     Cantidad = i.cantidadSolicitada,
                              
                                 };
                     return query;
 
+            }
+                   catch (Exception)
+              {
+                return null;
+            }
+            }
+        }
+        public static prestamos GetLoanByID(int id)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                try
+                {
+                    prestamos c1 = new prestamos();
+                    var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/GetLoan/{ id}")).Result;
+                    c1 = JsonConvert.DeserializeObject<prestamos>(response);
+                    return c1;
                 }
                 catch (Exception)
                 {
                     return null;
                 }
             }
+        }
+    
+    }
+    public class PagoPrestamo
+    {
+        public int prestamoId { get; set; }
+        public double cantidad { get; set; }
+        public int CuentaId { get; set; }
+
+        public static bool PostPrestamo(int idPrestamo, int idCuenta, Double Monto)
+        {
+         
+            PagoPrestamo p1 = new PagoPrestamo();
+            p1.cantidad = Monto;
+            p1.CuentaId = idCuenta;
+            p1.prestamoId = idPrestamo;
+
+            var json = JsonConvert.SerializeObject(p1);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var response = client.PostAsync(new Uri("https://bank-integration.azurewebsites.net/api/Netbankings/TransferMoney"), data).Result;
+                    if (response.IsSuccessStatusCode)
+                        return true;
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
         }
     }
 }
