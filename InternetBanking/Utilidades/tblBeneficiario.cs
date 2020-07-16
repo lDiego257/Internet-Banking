@@ -14,7 +14,6 @@ namespace Utilidades
     
     public partial class tblBeneficiario
     {
-        public int Id { get; set; }
         public string idCliente { get; set; }
         public string CuentaBeneficiario { get; set; }
         public string Alias { get; set; }

@@ -58,30 +58,36 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EFBanking.Context.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="EFBanking.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EFBanking.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="EFBanking.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EFBanking.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tblBeneficiario.cs">
       <DependentUpon>EFBanking.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="EFBanking.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EFBanking.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EntityDeploy>
     <None Include="App.Config" />
     <None Include="EFBanking.edmx.diagram">
       <DependentUpon>EFBanking.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -90,11 +96,13 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EFBanking.Context.cs</LastGenOutput>
       <DependentUpon>EFBanking.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="EFBanking.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EFBanking.edmx</DependentUpon>
       <LastGenOutput>EFBanking.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

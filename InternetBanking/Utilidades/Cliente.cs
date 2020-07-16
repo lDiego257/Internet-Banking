@@ -277,5 +277,24 @@ namespace Utilidades
             beneficiarios = entities.tblBeneficiarios.Where(x => x.idCliente == id).ToList();
             return beneficiarios;
         }
+        public static object ListarBeneficariosDrop(string id)
+        {
+
+            
+                //try
+                //{
+                    BDBankingEntities entities = new BDBankingEntities();
+                    List<tblBeneficiario> beneficiarios = new List<tblBeneficiario>();
+                    beneficiarios = entities.tblBeneficiarios.Where(x => x.idCliente == id).ToList();  
+                    var query = beneficiarios.Select(p => new { p.CuentaBeneficiario, DisplayText = p.CuentaBeneficiario.ToString() + "| Alias: " + p.Alias });
+                    return query;
+
+                //}
+                //catch (Exception)
+                //{
+                //    return null;
+                //}
+            
+        }
     }
 }

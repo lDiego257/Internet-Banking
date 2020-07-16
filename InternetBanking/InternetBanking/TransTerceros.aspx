@@ -10,7 +10,7 @@
                     <h1 class="h4 text-gray-900 mb-4">Transacciones a terceros</h1>
                   </div>
 
-<%-- Cuenta origen --%>
+<%-- Numero de cuenta receptor --%>
                     <b>
     <asp:Label ID="Label1" 
         runat="server" 
@@ -25,12 +25,12 @@
          placeholder="Seleccione"
         width="600"
         height="40"
-         aria-describedby="emailHelp">
+         aria-describedby="emailHelp" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
         <asp:ListItem >Seleccione</asp:ListItem>
     </asp:DropDownList>
 <br>
 
-                    <%-- Beneficiarios --%>
+                    <%-- Monto a pagar --%>
 <b>
      <asp:Label ID="Label2" 
         runat="server" 
@@ -44,8 +44,8 @@
         class="form-control form-control-user"
          width="600"
         height="40"
-         aria-describedby="emailHelp">
-         <asp:ListItem >Seleccione</asp:ListItem>
+         aria-describedby="emailHelp" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" AppendDataBoundItems="true" AutoPostBack="True">
+         <asp:ListItem Value="0">&lt;Seleccione un Item&gt;</asp:ListItem>
 
      </asp:DropDownList>
 
@@ -58,20 +58,8 @@
         Text="Numero de cuenta receptor"
         ></asp:Label>
                     </b>
-<br>
-
-     <asp:DropDownList ID="DropDownList3"
-        runat="server"
-        class="form-control form-control-user"
-         width="600"
-        height="40"
-        aria-describedby="emailHelp">
-         <asp:ListItem >Seleccione</asp:ListItem>
-
-
-     </asp:DropDownList>
                     <br >
-           <asp:TextBox ID="TextBox1"
+           <asp:TextBox ID="txtreceptor"
          runat="server"
           class="form-control form-control-user"
           width="600"
@@ -88,7 +76,7 @@
     </b>
                   
                     <br>
-   <asp:TextBox ID="TextBox2" 
+   <asp:TextBox ID="txtmonto" 
        runat="server"
        class="form-control form-control-user"
        placeholder="Monto"
@@ -105,21 +93,19 @@
          </asp:Label>
 </b>
 <br>
-         <asp:TextBox id="textbox3"
+         <asp:TextBox id="txtconcepto"
          runat="server"
          class="form-control form-control-user"
           width="600"
         height="40"
-         aria-describedby="emailHelp">
-
-         </asp:TextBox> 
+         aria-describedby="emailHelp"></asp:TextBox> 
                     <br />
                     <asp:Button id="Button1" 
                         runat="server" 
                         Text="Enviar" 
                         width="600"
         height="40"
-                        class="btn btn-primary btn-icon-split">
+                        class="btn btn-primary btn-icon-split" OnClick="Button1_Click">
                       </asp:Button>
 
                 </div>
