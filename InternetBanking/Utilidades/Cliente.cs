@@ -111,6 +111,23 @@ namespace Utilidades
                 }
             }
         }
+        public static Cuentas GetCuentasByID(int id)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                try
+                {
+                    Cuentas c1 = new Cuentas();
+                    var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/GetUserAccountDetails/{ id}")).Result;
+                    c1 = JsonConvert.DeserializeObject<Cuentas>(response);
+                    return c1;
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+        }
 
     }
 
@@ -166,7 +183,7 @@ namespace Utilidades
             }
         }
 
-        public static string PostTransaction(string cedula, string concepto, double monto, int Emisor, int Receptor)
+        public static  bool PostTransaction(string cedula, string concepto, double monto, int Emisor, int Receptor)
         {
             Transacciones t1 = new Transacciones();
             t1.cedula = cedula;        
@@ -186,13 +203,13 @@ namespace Utilidades
                 {
                     var response = client.PostAsync(new Uri(""), data).Result;
                     if (response.IsSuccessStatusCode)
-                        return "bien";
-                    return response.Content.ToString();
+                        return true;
+                    return false;
                 }               
             }
             catch (Exception)
             {
-                return "mal";
+                return false;
             }
 
         }
