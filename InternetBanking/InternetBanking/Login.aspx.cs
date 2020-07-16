@@ -29,6 +29,7 @@ namespace InternetBanking
                 {
                     
                     Session["usuario"] = vUsuario;
+                    Session["fecha"] = DateTime.Now;
                     Response.Redirect("Principal.aspx");
                    
                 }

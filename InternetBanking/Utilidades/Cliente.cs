@@ -21,6 +21,7 @@ namespace Utilidades
         private string telefono;
         private string usuario;
 
+
         public int Id { get => id; set => id = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido { get => apellido; set => apellido = value; }
@@ -63,7 +64,6 @@ namespace Utilidades
 
         public static object ListarCuentas(string username)
         {
-
             using (var httpClient = new HttpClient())
             {
                 try
@@ -83,6 +83,25 @@ namespace Utilidades
                                 };
                     return query;
 
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+        }
+
+        public static List<Cuentas> ListarCuentasInicio(string username)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                try
+                {
+                    Cliente c1 = Cliente.GetClienteByUsuario(username);
+                    var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/GetClientAccounts/{ c1.Cedula}")).Result;
+
+                    List<Cuentas> ListaCuentas = JsonConvert.DeserializeObject<List<Cuentas>>(response);
+                    return ListaCuentas;
                 }
                 catch (Exception)
                 {

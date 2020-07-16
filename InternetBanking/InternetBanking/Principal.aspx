@@ -18,9 +18,9 @@
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">texto</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">Monto</div>
+                    <div class="col mr-2">      
+                        <asp:Label ID="lblNombre" runat="server" Text="Label" CssClass="text-xs font-weight-bold text-primary text-uppercase mb-1"></asp:Label>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><asp:Label ID="lblcorreo" runat="server" Text="Label"></asp:Label></div>     
                     </div>
                   </div>
                 </div>
@@ -31,8 +31,10 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">texto</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">Monto</div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                          <asp:Label ID="Label1" runat="server" Text="lblBalanceGeneral"></asp:Label></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">
+                          <asp:Label ID="lblBalanceGeneralnumero" runat="server" Text="Label"></asp:Label></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -46,10 +48,12 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">texto</div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                          <asp:Label ID="lblUltimoAcceso" runat="server" Text="Label"></asp:Label></div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Monto</div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                              <asp:Label ID="lblfecha" runat="server" Text="Label"></asp:Label></div>
                         </div>
                         <div class="col">
                         </div>
@@ -261,5 +265,5 @@
           </div>
         </div>
       </div>--%>
-
+            </div>
 </asp:Content>
