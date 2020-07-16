@@ -201,18 +201,18 @@ namespace Utilidades
             {
                 using (var client = new HttpClient())
                 {
-                    var response = client.PostAsync(new Uri(""), data).Result;
+                    var response = client.PostAsync(new Uri("https://bank-integration.azurewebsites.net/api/Netbankings/TransferMoney"), data).Result;
                     if (response.IsSuccessStatusCode)
                         return true;
                     return false;
                 }
-            }
+        }
             catch (Exception)
             {
                 return false;
             }
 
-        }
+}
 
 
     }

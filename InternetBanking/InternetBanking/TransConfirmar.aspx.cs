@@ -33,6 +33,7 @@ namespace InternetBanking
             Session["emisorID"] = "";
             Session["ReceptorID"] = "";
             Response.Redirect("Principal.aspx");
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -49,16 +50,18 @@ namespace InternetBanking
                 Session["Concepto"] = "";
                 Session["emisorID"] = "";
                 Session["ReceptorID"] = "";
-                Response.Redirect("");
+                var page = HttpContext.Current.CurrentHandler as Page;
+                ScriptManager.RegisterStartupScript(page, page.GetType(), "alert", "alert('" + "Transaccion procesada exitosamente" + "');window.location ='" + "Principal.aspx" + "';", true);
             }
             else
             {
-                Response.Write("<script> alert(" + "'Ha ocurrido un error, intente mas tarde'" + ") </script>");
+               
                 Session["monto"] = "";
                 Session["Concepto"] = "";
                 Session["emisorID"] = "";
                 Session["ReceptorID"] = "";
-                Response.Redirect("");
+                var page = HttpContext.Current.CurrentHandler as Page;
+                ScriptManager.RegisterStartupScript(page, page.GetType(), "alert", "alert('" + "Ha ocurrido un error en el servidor, por favor intente mas tarde" + "');window.location ='" + "Principal.aspx" + "';", true);
             }
         }
     }

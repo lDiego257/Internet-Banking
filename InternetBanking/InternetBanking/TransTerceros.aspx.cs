@@ -71,6 +71,8 @@ namespace InternetBanking
                             Session["Concepto"] = concepto;
                             Session["emisorID"] = CuentaEmisor.id;
                             Session["ReceptorID"] = CuentaReceptor.id;
+
+
                             Response.Redirect("TransConfirmar.aspx");
                         }
                         else
