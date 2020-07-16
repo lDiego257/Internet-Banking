@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetBanking", "Internet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilidades", "Utilidades\Utilidades.csproj", "{6A729FAC-A6DB-4E30-857E-64E8805CC71A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4Net", "Log4Net\Log4Net.csproj", "{08F304F4-17B8-44D6-AA5E-CD334AD705DA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{6A729FAC-A6DB-4E30-857E-64E8805CC71A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A729FAC-A6DB-4E30-857E-64E8805CC71A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A729FAC-A6DB-4E30-857E-64E8805CC71A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{08F304F4-17B8-44D6-AA5E-CD334AD705DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{08F304F4-17B8-44D6-AA5E-CD334AD705DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{08F304F4-17B8-44D6-AA5E-CD334AD705DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{08F304F4-17B8-44D6-AA5E-CD334AD705DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
