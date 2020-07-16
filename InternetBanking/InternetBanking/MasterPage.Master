@@ -130,7 +130,6 @@
         </a>
         <div id="collapsefour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="ConsultarCuentas.aspx">Actividades de log</a>
             <a class="collapse-item" href="Login.aspx">Cerrar Sesion</a>
           </div>
         </div>
