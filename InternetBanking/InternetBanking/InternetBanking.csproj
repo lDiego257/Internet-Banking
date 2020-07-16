@@ -134,6 +134,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Beneficiarios.aspx" />
     <Content Include="ConsultarCuentas.aspx" />
     <Content Include="ConsultarMovimientos.aspx" />
     <Content Include="css\sb-admin-2.css" />
@@ -161,7 +162,6 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="TransConfirmar.aspx" />
     <Content Include="TransInterbancaria.aspx" />
     <Content Include="TransPropias.aspx" />
     <Content Include="TransTerceros.aspx" />
@@ -1828,6 +1828,13 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Beneficiarios.aspx.cs">
+      <DependentUpon>Beneficiarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Beneficiarios.aspx.designer.cs">
+      <DependentUpon>Beneficiarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarCuentas.aspx.cs">
       <DependentUpon>ConsultarCuentas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1882,13 +1889,6 @@
       <DependentUpon>Reporte.aspx</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="TransConfirmar.aspx.cs">
-      <DependentUpon>TransConfirmar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TransConfirmar.aspx.designer.cs">
-      <DependentUpon>TransConfirmar.aspx</DependentUpon>
-    </Compile>
     <Compile Include="TransInterbancaria.aspx.cs">
       <DependentUpon>TransInterbancaria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
