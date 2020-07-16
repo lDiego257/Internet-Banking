@@ -55,18 +55,23 @@ namespace InternetBanking
                     Cuentas Emisor = Cuentas.GetCuentasByID(int.Parse(DropDownList2.SelectedValue));
                     if (Emisor.balance >= monto)
                     {
-                        prestamos p1 = prestamos.GetLoanByID(int.Parse(DropDownList2.SelectedValue));
-                        if (p1.cantidadfaltante >= monto)
-                        {
-                            Session["Concepto"] = "Pago de prestamo";
-                            Session["emisorID"] = Emisor.id;
-                            Session["ReceptorID"] = p1.id.ToString();
-                            Session["monto"] = monto.ToString();
-                            Session["Prestamo"] = "1";
-                            Response.Redirect("TransConfirmar.aspx");
+                        if (prestamos.GetLoanByID(int.Parse(DropDownList2.SelectedValue)) != null)
+                            {
+                            prestamos p1 = prestamos.GetLoanByID(int.Parse(DropDownList2.SelectedValue));
+
+                            if (p1.cantidadfaltante >= monto)
+                            {
+                                Session["Concepto"] = "Pago de prestamo";
+                                Session["emisorID"] = Emisor.id;
+                                Session["ReceptorID"] = p1.id.ToString();
+                                Session["monto"] = monto.ToString();
+                                Session["Prestamo"] = "1";
+                                Response.Redirect("TransConfirmar.aspx");
+                            }
+                            else
+                                Response.Write("<script> alert(" + "'El monto ingresado supera la cantidad que le queda por pagar'" + ") </script>");
                         }
-                        else
-                            Response.Write("<script> alert(" + "'El monto ingresado supera la cantidad que le queda por pagar'" + ") </script>");
+                        else Response.Write("<script> alert(" + "'Usted no tiene ningun prestamo'" + ") </script>");
                     }
                     else Response.Write("<script> alert(" + "'Balance insuficiente'" + ") </script>");
                 }
