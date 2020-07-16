@@ -6,12 +6,7 @@
      <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-         
-           <%--<rsweb:ReportViewer ID="ReportViewer1" runat="server" ProcessingMode="Remote">
-           <ServerReport ReportPath="" ReportServerUrl="" />
-           </rsweb:ReportViewer>--%>
-
+        
           <!-- Content Row -->
           <div class="row">
             <div class="col-xl-3 col-md-6 mb-4">
