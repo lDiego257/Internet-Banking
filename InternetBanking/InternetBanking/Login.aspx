@@ -15,11 +15,11 @@
 
   <title>Login</title>
 
-  <!-- Custom fonts for this template-->
+  
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
+  
   <link href="css/sb-admin-2.min.css" rel="stylesheet"/>
 
 </head>
@@ -96,22 +96,4 @@
 </html>
 
 
-<%-- loguin sin diseño --%>
 
-
-<%--<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-        <asp:Label ID="Label1" runat="server" Text="Usuario"></asp:Label>
-        <asp:TextBox ID="txtusuario" runat="server"></asp:TextBox>
-        <p>
-            <asp:Label ID="Label2" runat="server" Text="Clave"></asp:Label>
-            <asp:TextBox ID="txtclave" runat="server"></asp:TextBox>
-        </p>
-        <asp:Button ID="Button1" runat="server" Text="Iniciar Sesion" Width="97px" OnClick="Button1_Click" />
-    </form>
-</body>--%>
