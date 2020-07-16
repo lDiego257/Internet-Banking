@@ -19,21 +19,30 @@ namespace InternetBanking
                     Response.Redirect("~/Login.aspx");
                 }
                 double monto=0;
-                Cliente c1 = Utilidades.Cliente.GetClienteByUsuario(Session["usuario"].ToString());
-                List<Cuentas> cs1 = Cuentas.ListarCuentasInicio(c1.Usuario);
-                if (cs1 != null)
+                Cliente c1 = Cliente.GetClienteByUsuario(Session["usuario"].ToString());
+                if (c1 != null)
                 {
-                    foreach (var item in cs1)
+
+                    if (Cuentas.ListarCuentasInicio(Session["usuario"].ToString()) != null)
                     {
-                        monto = monto + item.balance;
+                        List<Cuentas> cs1 = Cuentas.ListarCuentasInicio(c1.Usuario);
+                        foreach (var item in cs1)
+                        {
+                            monto = monto + item.balance;
+                        }
                     }
+                    lblcorreo.Text = c1.CorreoElectronico;
+                    lblNombre.Text = $"{c1.Nombre} {c1.Apellido}";
+                    lblUltimoAcceso.Text = "Ultimo Acceso";
+                    lblfecha.Text = Session["fecha"].ToString();
+                    lblBalanceGeneralnumero.Text = monto.ToString();
+                    Label1.Text = "Balance General";
                 }
-                lblcorreo.Text = c1.CorreoElectronico;
-                lblNombre.Text = $"{c1.Nombre} {c1.Apellido}";
-                lblUltimoAcceso.Text = "Ultimo Acceso";
-                lblfecha.Text = Session["fecha"].ToString();
-                lblBalanceGeneralnumero.Text = monto.ToString();
-                Label1.Text = "Balance General";
+                else
+                {
+                    var page = HttpContext.Current.CurrentHandler as Page;
+                    ScriptManager.RegisterStartupScript(page, page.GetType(), "alert", "alert('" + "Usted no aparece como cliente en nuestro sistema" + "');window.location ='" + "Login.aspx" + "';", true);
+                }
             }
         }     
     }

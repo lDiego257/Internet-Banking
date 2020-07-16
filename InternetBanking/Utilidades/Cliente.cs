@@ -102,12 +102,12 @@ namespace Utilidades
 
                     List<Cuentas> ListaCuentas = JsonConvert.DeserializeObject<List<Cuentas>>(response);
                     return ListaCuentas;
-                }
-                catch (Exception)
-                {
-                    return null;
-                }
             }
+                catch (Exception)
+            {
+                return null;
+            }
+        }
         }
         public static object ListarCuentasDrop(string username)
         {
