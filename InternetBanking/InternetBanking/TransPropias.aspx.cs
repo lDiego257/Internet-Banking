@@ -47,16 +47,29 @@ namespace InternetBanking
         {
 
             Cliente c1 = Cliente.GetClienteByUsuario(Session["usuario"].ToString());
+            //REVISA QUE LOS TEXTBOXS NO ESTEN VACIOS
             if (TextBox1.Text != "" && textbox3.Text != "")
-            {
+            { //REVISA QUE NO HAYA SELECCIONAOD LA MISMA CUENTA
                 if (DropDownList1.SelectedValue != DropDownList2.SelectedValue)
                 {
-                    double monto;
+                    Cuentas Emisor = Cuentas.GetCuentasByID(int.Parse(DropDownList1.SelectedValue));
+                    Cuentas Receptor = Cuentas.GetCuentasByID(int.Parse(DropDownList2.SelectedValue));
+                    double monto; //CHEQUEA QUE EL TEXTBOX DE  MONTO TENGA NUMEROS
+
                     if (double.TryParse(TextBox1.Text, out monto))
                     {
-                        string respuesta = Transacciones.PostTransaction(c1.Cedula, textbox3.Text, monto, int.Parse(DropDownList1.SelectedValue), int.Parse(DropDownList2.SelectedValue));                       
-                        MessageBox.Show($"{respuesta}");
-                        
+                        if (Emisor.balance >= monto)
+                        {
+                            //bool respuesta = Transacciones.PostTransaction(c1.Cedula, textbox3.Text, monto, Emisor.id, Receptor.id);
+                          
+                            Session["monto"] = monto;
+                            Session["Concepto"] = textbox3.Text;
+                            Session["emisorID"] = Emisor.id;
+                            Session["ReceptorID"] = Receptor.id;
+                            Response.Redirect("TransConfirmar.aspx");
+                        }
+                        else
+                            Response.Write("<script> alert(" + "'No cuenta con suficiente balance para esta transaccion'" + ") </script>");
                     }
                     else
                         Response.Write("<script> alert(" + "'Ingrese un monto con valor numerico'" + ") </script>");
