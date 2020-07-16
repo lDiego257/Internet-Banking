@@ -24,6 +24,7 @@
         class="form-control form-control-user"
          placeholder="Seleccione"
         width="600"
+        height="40"
          aria-describedby="emailHelp" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
         <asp:ListItem >Seleccione</asp:ListItem>
     </asp:DropDownList>
@@ -39,7 +40,8 @@
      <asp:DropDownList ID="DropDownList2"
         runat="server"
         class="form-control form-control-user"
-          width="600"
+         width="600"
+        height="40"
          aria-describedby="emailHelp" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
          <asp:ListItem >Seleccione</asp:ListItem>
 
@@ -56,7 +58,8 @@
          runat="server"
          class="form-control form-control-user"
          placeholder="Digite"
-          width="600"
+         width="600"
+        height="40"
          aria-describedby="emailHelp">
          </asp:TextBox>
 <br>
@@ -70,6 +73,7 @@
          runat="server"
          class="form-control form-control-user"
          width="600"
+        height="40"
          aria-describedby="emailHelp">
 
          </asp:TextBox> 
@@ -78,6 +82,7 @@
                         runat="server" 
                         Text="Enviar" 
                         width="600"
+        height="40"
                         class="btn btn-primary btn-icon-split" OnClick="Button1_Click">
                       </asp:Button>
                 </div>
