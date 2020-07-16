@@ -8,7 +8,7 @@
           <div class="card-body p-0">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4"><B>Beneficiarios</h1>
+                    <h1 class="h4 text-gray-900 mb-4"><B>Registro Beneficiarios</h1>
                   </div>
 
                  
@@ -20,25 +20,24 @@
 
 
     
-    <asp:DropDownList ID="DropDownList1"
-        runat="server"
-        class="form-control form-control-user"
-         placeholder="Seleccione"
-       width="600"
+   <asp:TextBox ID="txtcuenta" 
+         runat="server"
+         class="form-control form-control-user"
+         placeholder="Digite"
+         width="600"
         height="40"
          aria-describedby="emailHelp">
-        <asp:ListItem >Seleccione</asp:ListItem>
-    </asp:DropDownList>
+         </asp:TextBox>
 
                    <br>
 <b>
      <asp:Label ID="Label3" 
         runat="server" 
-        Text="Monto a Pagar"
+        Text="Alias"
         ></asp:Label>
     </b>
                     <br>
-     <asp:TextBox ID="TextBox1" 
+     <asp:TextBox ID="txtalias" 
          runat="server"
          class="form-control form-control-user"
          placeholder="Digite"
@@ -53,7 +52,7 @@
                         Text="Enviar" 
                         width="600"
                         heigth="0"
-                        class="btn btn-primary btn-icon-split" /></asp:Button>
+                        class="btn btn-primary btn-icon-split" OnClick="Button1_Click" /></asp:Button>
     
                 </div>
               </div>
@@ -66,4 +65,5 @@
     </div>
 
   </div>
+    </b>
 </asp:Content>

@@ -63,7 +63,7 @@ namespace Utilidades
 
         public static object ListarCuentas(string username)
         {
-           
+
             using (var httpClient = new HttpClient())
             {
                 try
@@ -82,7 +82,7 @@ namespace Utilidades
                                     Tipo = i.tipo,
                                 };
                     return query;
-                   
+
                 }
                 catch (Exception)
                 {
@@ -101,7 +101,7 @@ namespace Utilidades
                     var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/GetClientAccounts/{ c1.Cedula}")).Result;
 
                     List<Cuentas> ListaCuentas = JsonConvert.DeserializeObject<List<Cuentas>>(response);
-                    var query = ListaCuentas.Select(p => new { p.id, DisplayText = p.id.ToString() + "| Moneda: "+ p.moneda + " | Balance: " +p.balance.ToString()});
+                    var query = ListaCuentas.Select(p => new { p.id, DisplayText = p.id.ToString() + "| Moneda: " + p.moneda + " | Balance: " + p.balance.ToString() });
                     return query;
 
                 }
@@ -144,17 +144,17 @@ namespace Utilidades
 
         public static object GetTransacciones(string NumeroCuenta)
         {
-            List<Transacciones> t1 = new List<Transacciones>();           
+            List<Transacciones> t1 = new List<Transacciones>();
             using (var httpClient = new HttpClient())
             {
                 //lista de transacciones que envia
                 try
                 {
                     var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/GetAccountMovementsByReceiverUser/{ NumeroCuenta}")).Result;
-                    t1.AddRange(JsonConvert.DeserializeObject<List<Transacciones>>(response));                                      
+                    t1.AddRange(JsonConvert.DeserializeObject<List<Transacciones>>(response));
                 }
                 catch (Exception)
-                {                   
+                {
                 }
                 //Lista de transacciones que recibe
                 try
@@ -163,19 +163,19 @@ namespace Utilidades
                     t1.AddRange(JsonConvert.DeserializeObject<List<Transacciones>>(response));
                 }
                 catch (Exception)
-                {                    
-                }             
-                if(t1.Count()>0)
+                {
+                }
+                if (t1.Count() > 0)
                 {
                     var query = from i in t1
                                 select new
                                 {
-                                  Fecha = i.fechaTransaccion,
-                                  Cuenta_Remitente = i.idCuentaEmisora,
-                                  Cuenta_Receptora = i.idCuentaReceptora,
-                                  Monto = i.precioProducto,
-                                  Concepto = i.nombreProducto,
-                                  Tipo = i.tipoTransaccion,
+                                    Fecha = i.fechaTransaccion,
+                                    Cuenta_Remitente = i.idCuentaEmisora,
+                                    Cuenta_Receptora = i.idCuentaReceptora,
+                                    Monto = i.precioProducto,
+                                    Concepto = i.nombreProducto,
+                                    Tipo = i.tipoTransaccion,
                                 };
                     return query.OrderByDescending(x => x.Fecha);
                 }
@@ -183,20 +183,20 @@ namespace Utilidades
             }
         }
 
-        public static  bool PostTransaction(string cedula, string concepto, double monto, int Emisor, int Receptor)
+        public static bool PostTransaction(string cedula, string concepto, double monto, int Emisor, int Receptor)
         {
             Transacciones t1 = new Transacciones();
-            t1.cedula = cedula;        
+            t1.cedula = cedula;
             t1.nombreProducto = concepto;
             t1.idCuentaEmisora = Emisor;
             t1.idCuentaReceptora = Receptor;
             t1.precioProducto = monto;
-            t1.tipoTransaccion = "D";      
+            t1.tipoTransaccion = "D";
 
             var json = JsonConvert.SerializeObject(t1);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-           
-     
+
+
             try
             {
                 using (var client = new HttpClient())
@@ -205,7 +205,7 @@ namespace Utilidades
                     if (response.IsSuccessStatusCode)
                         return true;
                     return false;
-                }               
+                }
             }
             catch (Exception)
             {
@@ -227,7 +227,7 @@ namespace Utilidades
             {
                 try
                 {
-                    var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/IsValidUser/Username={ vUsuario}&Clave={ vClave}")).Result;    
+                    var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/IsValidUser/Username={ vUsuario}&Clave={ vClave}")).Result;
                     return true;
                 }
                 catch (Exception)
@@ -236,7 +236,7 @@ namespace Utilidades
                 }
             }
         }
-    } 
+    }
 
     public class CuentasShow
     {
@@ -245,5 +245,37 @@ namespace Utilidades
         public string Moneda { get; set; }
         public string Estado { get; set; }
         public string Tipo { get; set; }
+    }
+
+    public class Beneficiario
+    {
+        int idDueño { get; set; }
+        int idCuentaBeneficiario { get; set; }
+
+        public static bool RegistrarBeneficiario(string idDueño, string idCuentaBeneficiario, string alias)
+        {
+            try
+            {
+                BDBankingEntities entities = new BDBankingEntities();
+                tblBeneficiario b1 = new tblBeneficiario();
+                b1.Alias = alias;
+                b1.idCliente = idDueño;
+                b1.CuentaBeneficiario = idCuentaBeneficiario;
+                entities.tblBeneficiarios.Add(b1);
+                entities.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        public static List<tblBeneficiario> GetBeneficiarios(string id)
+        {
+            BDBankingEntities entities = new BDBankingEntities();
+            List<tblBeneficiario> beneficiarios = new List<tblBeneficiario>();
+            beneficiarios = entities.tblBeneficiarios.Where(x => x.idCliente == id).ToList();
+            return beneficiarios;
+        }
     }
 }
