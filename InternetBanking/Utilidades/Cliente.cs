@@ -299,21 +299,58 @@ namespace Utilidades
         public static object ListarBeneficariosDrop(string id)
         {
 
-            
-                //try
-                //{
-                    BDBankingEntities entities = new BDBankingEntities();
+
+            try
+            {
+                BDBankingEntities entities = new BDBankingEntities();
                     List<tblBeneficiario> beneficiarios = new List<tblBeneficiario>();
                     beneficiarios = entities.tblBeneficiarios.Where(x => x.idCliente == id).ToList();  
                     var query = beneficiarios.Select(p => new { p.CuentaBeneficiario, DisplayText = p.CuentaBeneficiario.ToString() + "| Alias: " + p.Alias });
                     return query;
 
-                //}
-                //catch (Exception)
-                //{
-                //    return null;
-                //}
-            
+            }
+                catch (Exception)
+                {
+                    return null;
+                }
+
+        }
+    }
+    public class prestamos
+    {
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public string cedula { get; set; }
+        public string telefono { get; set; }
+        public string correoElectronico { get; set; }
+        public int cantidadSolicitada { get; set; }
+
+        public static object GetPrestamosByCedula(string cedula)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                try
+                {
+                    
+                    var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/GetClientLoans/{ cedula}")).Result;
+
+                    List<prestamos> ListaCuentas = JsonConvert.DeserializeObject<List<prestamos>>(response);
+                    var query = from i in ListaCuentas
+                                select new
+                                {
+                                    id = i.id,
+                                    Cantidad = i.cantidadSolicitada,
+                             
+                                };
+                    return query;
+
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
         }
     }
 }
