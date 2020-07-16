@@ -62,6 +62,7 @@ namespace InternetBanking
                             Session["emisorID"] = Emisor.id;
                             Session["ReceptorID"] = p1.id.ToString();
                             Session["monto"] = monto.ToString();
+                            Session["Prestamo"] = "1";
                             Response.Redirect("TransConfirmar.aspx");
                         }
                         else

@@ -78,6 +78,7 @@ namespace InternetBanking
                     Session["Concepto"] = "";
                     Session["emisorID"] = "";
                     Session["ReceptorID"] = "";
+                    Session["Prestamo"] = "";
                     var page = HttpContext.Current.CurrentHandler as Page;
                     ScriptManager.RegisterStartupScript(page, page.GetType(), "alert", "alert('" + "Transaccion procesada exitosamente" + "');window.location ='" + "Principal.aspx" + "';", true);
                 }
@@ -88,6 +89,7 @@ namespace InternetBanking
                     Session["Concepto"] = "";
                     Session["emisorID"] = "";
                     Session["ReceptorID"] = "";
+                    Session["Prestamo"] = "";
                     var page = HttpContext.Current.CurrentHandler as Page;
                     ScriptManager.RegisterStartupScript(page, page.GetType(), "alert", "alert('" + "Ha ocurrido un error en el servidor, por favor intente mas tarde" + "');window.location ='" + "Principal.aspx" + "';", true);
                 }

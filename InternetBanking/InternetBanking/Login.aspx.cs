@@ -16,6 +16,7 @@ namespace InternetBanking
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["usuario"] = null;
+            Session["Prestamo"] = "";
         }
       
         protected void Logueo(object sender, EventArgs e)
