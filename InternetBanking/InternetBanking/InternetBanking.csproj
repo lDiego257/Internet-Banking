@@ -137,11 +137,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BATRACAR.jpg" />
     <Content Include="Beneficiarios.aspx" />
     <Content Include="ConsultarCuentas.aspx" />
     <Content Include="ConsultarMovimientos.aspx" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
+    <Content Include="Factura.aspx" />
     <Content Include="Global.asax" />
     <Content Include="js\demo\chart-area-demo.js" />
     <Content Include="js\demo\chart-bar-demo.js" />
@@ -1852,6 +1854,13 @@
     </Compile>
     <Compile Include="ConsultarMovimientos.aspx.designer.cs">
       <DependentUpon>ConsultarMovimientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Factura.aspx.cs">
+      <DependentUpon>Factura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Factura.aspx.designer.cs">
+      <DependentUpon>Factura.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

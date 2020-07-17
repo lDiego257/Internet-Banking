@@ -201,6 +201,34 @@ namespace Utilidades
                 return t1;
             }
         }
+        public static Transacciones GetLasTransaction(string NumeroCuenta)
+        {
+            List<Transacciones> t1 = new List<Transacciones>();
+            using (var httpClient = new HttpClient())
+            {
+                //lista de transacciones que envia
+                try
+                {
+                    var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/GetAccountMovementsByReceiverUser/{ NumeroCuenta}")).Result;
+                    t1.AddRange(JsonConvert.DeserializeObject<List<Transacciones>>(response));
+                }
+                catch (Exception)
+                {
+                }
+                //Lista de transacciones que recibe
+                try
+                {
+                    var response = httpClient.GetStringAsync(new Uri($"https://bank-integration.azurewebsites.net/api/Netbankings/GetAccountMovementsBySenderUser/{ NumeroCuenta}")).Result;
+                    t1.AddRange(JsonConvert.DeserializeObject<List<Transacciones>>(response));
+                }
+                catch (Exception)
+                {
+                }
+                t1.OrderByDescending(x => x.fechaTransaccion).FirstOrDefault();
+              
+                return t1.OrderByDescending(x => x.fechaTransaccion).FirstOrDefault(); 
+            }
+        }
 
         public static bool PostTransaction(string cedula, string concepto, double monto, int Emisor, int Receptor)
         {

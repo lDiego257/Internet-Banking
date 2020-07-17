@@ -18,6 +18,11 @@ namespace InternetBanking
                 {
                     Response.Redirect("~/Login.aspx");
                 }
+                Session["monto"] = "";
+                Session["Prestamo"] = "";
+                Session["Concepto"] = "";
+                Session["emisorID"] = "";
+                Session["ReceptorID"] = "";
                 double monto=0;
                 Cliente c1 = Cliente.GetClienteByUsuario(Session["usuario"].ToString());
                 if (c1 != null)

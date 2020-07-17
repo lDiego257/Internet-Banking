@@ -48,12 +48,9 @@ namespace InternetBanking
                 bool validar = Transacciones.PostTransaction(u1.Cedula, concepto, Monto, c1.id, c2.id);
                 if (validar)
                 {
-                    Session["monto"] = "";
-                    Session["Concepto"] = "";
-                    Session["emisorID"] = "";
-                    Session["ReceptorID"] = "";
+                   
                     var page = HttpContext.Current.CurrentHandler as Page;
-                    ScriptManager.RegisterStartupScript(page, page.GetType(), "alert", "alert('" + "Transaccion procesada exitosamente" + "');window.location ='" + "Principal.aspx" + "';", true);
+                    ScriptManager.RegisterStartupScript(page, page.GetType(), "alert", "alert('" + "Transaccion procesada exitosamente" + "');window.location ='" + "Factura.aspx" + "';", true);
                 }
                 else
                 {
